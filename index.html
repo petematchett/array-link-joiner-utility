@@ -1,0 +1,86 @@
+<html>
+<head>
+  <title>Array Link Joiner Utility</title>
+  <style>
+  body {
+    font-family: Helvetica, sans-serif; font-size: 12px; line-height: 18px;
+  }
+  div {
+    margin: 0 auto; padding: 12px 0;
+  }
+  button {
+    cursor:pointer;
+    padding: 10px; font-weight: bold; font-size: 12px; background-color: #2E8B57; color: #D0F0C0; border: 0;
+  }
+  button:hover {
+    color: #fff;
+  }
+  textarea {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+  }
+  </style>
+</head>
+<body>
+
+  <h1>Array Link Joiner Utility</h1>
+
+  <div id="outputHere"></div>
+
+  <button>Click here to Copy to Clipboard</button>
+  <br/>
+
+  <div>
+    <textarea id="codeHere" rows="20" wrap="hard"></textarea>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+  <script language="javascript" type="text/javascript">
+  titles=[
+    // paste in titles array here
+    "The Terminator",
+    "Indiana Jones and the Temple of Doom",
+    "Sixteen Candles",
+    "Ghostbusters",
+    "Dune",
+    "Amadeus",
+    "Red Dawn",
+    "Star Trek III: The Search for Spock",
+    "Conan the Destroyer",
+    "The Last Starfighter"
+  ];
+  links=[
+    // paste in links array here
+    "https://www.imdb.com/title/tt0088247/",
+    "https://www.imdb.com/title/tt0087469/",
+    "https://www.imdb.com/title/tt0088128/",
+    "https://www.imdb.com/title/tt0087332/",
+    "https://www.imdb.com/title/tt0087182/",
+    "https://www.imdb.com/title/tt0086879/",
+    "https://www.imdb.com/title/tt0087985/",
+    "https://www.imdb.com/title/tt0088170/",
+    "https://www.imdb.com/title/tt0087078/",
+    "https://www.imdb.com/title/tt0087597/"
+  ];
+    var i=0;
+    while (titles[i])
+    {
+      outputHere.innerHTML += "<a href='" + links[i] + "' title='" + titles[i] + " IMDB page'" + " target='_blank'" + ">" + titles[i] + "</a>";
+      codeHere.innerHTML += "<a href='" + links[i] + "' title='" + titles[i] + " IMDB page'" + " target='_blank'" + ">" + titles[i] + "</a>";
+      outputHere.innerHTML += "<br />" + "\n";
+      codeHere.innerHTML += "<br />" + "\n";
+      i++;
+    }
+
+    $("button").click(function(){
+      $("textarea").select();
+      document.execCommand('copy');
+  });
+
+  </script>
+
+</body>
+</html>
